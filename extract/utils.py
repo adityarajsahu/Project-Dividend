@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import re
 
 def scrape_news(url):
     r = requests.get(url)
@@ -61,6 +62,65 @@ def scrape_market_turnover(url):
             'price': tags[i + 1],
             'change': tags[i + 2],
             'percent': tags[i + 3]
+        })
+    # print(list_of_dict)
+
+    return list_of_dict
+
+def scrape_adr(url):
+    agent = {"User-Agent":"Mozilla/5.0"}
+    r = requests.get(url, headers=agent)
+    html_content = r.content
+    # print(html_content)
+
+    soup = BeautifulSoup(html_content, 'html.parser')
+    table = soup.select('table.moneyweb-stockTable > tbody')[0]
+    rows = table.contents
+
+    tags = []
+    for i in range(1, len(rows), 2):
+        for item in rows[i].children:
+            if item.text != '\n':
+                tags.append(item.text)
+    tags = tags[3:]
+    # print(tags)
+
+    list_of_dict = []
+    for i in range(0, len(tags), 3):
+        percent_str = re.sub(r"[\n\t\s]*", "", tags[i + 2])
+        list_of_dict.append({
+            'company': tags[i],
+            'close': tags[i + 1],
+            'percent': percent_str
+        })
+    # print(list_of_dict)
+
+    return list_of_dict
+
+def scrape_gdr(url):
+    agent = {"User-Agent":"Mozilla/5.0"}
+    r = requests.get(url, headers=agent)
+    html_content = r.content
+    # print(html_content)
+
+    soup = BeautifulSoup(html_content, 'html.parser')
+    table = soup.select('table.moneyweb-stockTable > tbody')[1]
+    rows = table.contents
+    # print(rows)
+
+    tags = []
+    for i in range(1, len(rows), 2):
+        for item in rows[i].children:
+            if item.text != '\n':
+                tags.append(item.text)
+    tags = tags[3:]
+    # print(tags)
+
+    list_of_dict = []
+    for i in range(0, len(tags), 3):
+        list_of_dict.append({
+            'company': tags[i],
+            'close': tags[i + 1]
         })
     # print(list_of_dict)
 

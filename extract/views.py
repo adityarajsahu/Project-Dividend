@@ -25,4 +25,15 @@ def market_turnover(request):
     return render(request, 'market-turnover.html', context=data)
 
 def adr(request):
-    adr_data = scrape_adr()
+    adr_data = scrape_adr(ADR_GDR_URL)
+    data = {
+        'table': adr_data
+    }
+    return render(request, 'adr.html', context=data)
+
+def gdr(request):
+    gdr_data = scrape_gdr(ADR_GDR_URL)
+    data = {
+        'table': gdr_data
+    }
+    return render(request, 'gdr.html', context=data)
