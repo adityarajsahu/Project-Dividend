@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>Project Dividend</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="display-6">ADR Prices</h1>
+    </div>
+    <div class="jumbotron">
+        <table class="table table-hover table-striped table-responsive" id="table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">Company</th>
+                    <th scope="col">Close (USD)</th>
+                    <th scope="col">Percentage Change</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in table %}
+                <tr>
+                    <th scope="row">{{row.index}}</th>
+                    <td>{{row.price}}</td>
+                    <td>{{row.percent}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

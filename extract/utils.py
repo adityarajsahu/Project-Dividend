@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-def scrap_news(url):
+def scrape_news(url):
     r = requests.get(url)
     html_content = r.content
 
@@ -35,5 +35,33 @@ def scrap_news(url):
             'header': heading_str,
             'para': paragraph_str
         })
-    print(list_of_dict[0])
+    return list_of_dict
+
+def scrape_market_turnover(url):
+    r = requests.get(url)
+    html_content = r.content
+
+    soup = BeautifulSoup(html_content, 'html.parser')
+    table = soup.select('table.mctable1 > tbody')[0]
+    rows = table.contents
+
+    tags = []
+    for i in range(1, len(rows), 2):
+        # print(rows[i])
+        for item in rows[i].children:
+            if item.text != '\n':
+                tags.append(item.text)
+                # print(type(item.text))
+    # print(tags)
+
+    list_of_dict = []
+    for i in range(0, len(tags), 4):
+        list_of_dict.append({
+            'index': tags[i],
+            'price': tags[i + 1],
+            'change': tags[i + 2],
+            'percent': tags[i + 3]
+        })
+    # print(list_of_dict)
+
     return list_of_dict
