@@ -11,6 +11,7 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#demonstration">Demonstration</a></li>
       </ul>
     </li>
     <li>
@@ -38,6 +39,11 @@ We have developed a web application that takes extracts important stock data suc
 * [![nsepython][nsepython-image]][nsepython-url]
 * [![anaconda][Anaconda-image]][Anaconda-url]
 
+### Demonstration
+
+https://user-images.githubusercontent.com/54609034/210134621-5d73e063-4457-4aad-bb30-9f027be683b8.mp4
+
+
 
 <!-- PREREQUISITES AND INSTALLATIONS -->
 ## Getting Started
@@ -57,6 +63,7 @@ conda update conda
 Set up a virtual environment
 ```
 conda create -n venv python=3.8
+conda activate venv
 ```
 ### Installation
 
