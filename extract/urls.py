@@ -7,4 +7,5 @@ urlpatterns = [
     path('adr/', adr, name="adr"),
     path('gdr/', gdr, name="gdr"),
     path('topSurfers/', top_surfers, name="top-surfers"),
+    path('optionFlows/', option_flows, name="option-flows"),
 ]

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
+from nsepython import *
 
 from .utils import *
 
@@ -45,3 +46,11 @@ def top_surfers(request):
         'table': top_gainers_data
     }
     return render(request, 'top-surfers.html', context=data)
+
+def option_flows(request):
+    option_flows_data = nse_fiidii('list')
+    # print(option_flows_data)
+    data = {
+        'table': option_flows_data
+    }
+    return render(request, 'option-flows.html', context=data)

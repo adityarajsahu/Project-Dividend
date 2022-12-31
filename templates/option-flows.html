@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Option Flows{% endblock %}
+
+{% block content %}
+
+    <div class="container mt-5">
+        <h1 class="display-6">Option Flows</h1>
+    </div>
+    <div class="jumbotron">
+        <table class="table table-hover table-striped table-responsive" id="table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">Category</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Buy Value</th>
+                    <th scope="col">Sell Value</th>
+                    <th scope="col">Net Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in table %}
+                <tr>
+                    <th scope="row">{{row.category}}</th>
+                    <td>{{row.date}}</td>
+                    <td>{{row.buyValue}}</td>
+                    <td>{{row.sellValue}}</td>
+                    <td>{{row.netValue}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
