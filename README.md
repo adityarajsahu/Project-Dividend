@@ -22,6 +22,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+    <li><a href="#user-interface">User Interface</a></li>
     <li><a href="#contributors">Contributors</a></li>
   </ol>
 </details>
@@ -79,6 +80,13 @@ python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
 ```  
+
+## User Interface
+
+![ui1](https://user-images.githubusercontent.com/54609034/210134695-ff23c1f0-6d4d-4315-8671-0332ed9df5a8.png)
+![ui2](https://user-images.githubusercontent.com/54609034/210134699-2600436c-823d-496b-af6d-e7b5dbea52ef.png)
+![ui3](https://user-images.githubusercontent.com/54609034/210134713-5ae43efa-8519-45e1-81c9-d8e3e6be68ee.png)
+![ui4](https://user-images.githubusercontent.com/54609034/210134714-061adfff-4411-4a62-a105-ada68e719bd7.png)
 
 
 ## Contributors
