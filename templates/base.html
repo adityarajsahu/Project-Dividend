@@ -12,29 +12,29 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <!-- <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </button> -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'news' %}">News</a>
+                        <a class="nav-link" aria-current="page" href="{% url 'news' %}">News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'market-turnover' %}">Turnover</a>
+                        <a class="nav-link " href="{% url 'market-turnover' %}">Turnover</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'adr' %}">ADR Prices</a>
+                        <a class="nav-link " href="{% url 'adr' %}">ADR Prices</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'gdr' %}">GDR Prices</a>
+                        <a class="nav-link " href="{% url 'gdr' %}">GDR Prices</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'top-surfers' %}">Top Surfers</a>
+                        <a class="nav-link " href="{% url 'top-surfers' %}">Top Surfers</a>
                     </li>
                 </ul>
             </div>
