@@ -6,6 +6,7 @@ from .utils import *
 NEWS_URL = "https://www.moneycontrol.com/news/business/markets/"
 MARKET_TURNOVER_URL = "https://www.moneycontrol.com/stocksmarketsindia/"
 ADR_GDR_URL = "https://www.goodreturns.in/adr-gdr-listings.html"
+TOP_SURFERS_URL = "https://www.moneycontrol.com/stocksmarketsindia/"
 
 # Create your views here.
 
@@ -37,3 +38,10 @@ def gdr(request):
         'table': gdr_data
     }
     return render(request, 'gdr.html', context=data)
+
+def top_surfers(request):
+    top_gainers_data = scrape_top_surfers(TOP_SURFERS_URL)
+    data = {
+        'table': top_gainers_data
+    }
+    return render(request, 'top-surfers.html', context=data)

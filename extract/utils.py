@@ -125,3 +125,31 @@ def scrape_gdr(url):
     # print(list_of_dict)
 
     return list_of_dict
+
+def scrape_top_surfers(url):
+    r = requests.get(url)
+    html_content = r.content
+
+    soup = BeautifulSoup(html_content, 'html.parser')
+    table = soup.select('table.mctable1 > tbody')[5]
+    # print(table.contents)
+    rows = table.contents
+
+    tags = []
+    for i in range(1, len(rows), 2):
+        print(rows[i])
+        for item in rows[i].children:
+            if item.text != '\n':
+                tags.append(item.text)
+    print(tags)
+
+    list_of_dict = []
+    for i in range(0, len(tags), 3):
+        list_of_dict.append({
+            'company': tags[i],
+            'current': tags[i + 1],
+            'percent': tags[i + 2]
+        })
+    print(list_of_dict)
+
+    return list_of_dict

@@ -2,32 +2,32 @@
 
 {% load static %}
 
-{% block title %}ADR Prices{% endblock %}
+{% block title %}Top Surfers{% endblock %}
 
 {% block content %}
 
     <div class="container mt-5">
-        <h1 class="display-6">ADR Prices</h1>
+        <h1 class="display-6">Top Surfers</h1>
     </div>
     <div class="jumbotron">
         <table class="table table-hover table-striped table-responsive" id="table-responsive">
             <thead>
                 <tr>
                     <th scope="col">Company</th>
-                    <th scope="col">Close (USD)</th>
-                    <th scope="col">Percentage Change</th>
+                    <th scope="col">Current</th>
+                    <th scope="col">Percentage Gain</th>
                 </tr>
             </thead>
             <tbody>
                 {% for row in table %}
                 <tr>
                     <th scope="row">{{row.company}}</th>
-                    <td>{{row.close}}</td>
+                    <td>{{row.current}}</td>
                     <td>{{row.percent}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
-
+    
 {% endblock %}

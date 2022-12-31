@@ -1,17 +1,11 @@
+{% extends 'base.html' %}
+
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}Market Turnover{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <title>Project Dividend</title>
-</head>
+{% block content %}
 
-<body>
     <div class="container mt-5">
         <h1 class="display-6">Market Turnover</h1>
     </div>
@@ -37,6 +31,5 @@
             </tbody>
         </table>
     </div>
-</body>
-
-</html>
+    
+{% endblock %}
